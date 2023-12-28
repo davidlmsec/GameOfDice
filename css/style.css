@@ -1,0 +1,182 @@
+/* Réinitialisation du navigateur */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+ 
+ /* Styles généraux */
+ body {
+  font-family: 'Lato', sans-serif;
+ }
+
+
+/* ============================== GRID ============================== */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.9fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+}
+
+.Ground-1 {
+  grid-area: 1 / 1 / 2 / 2;
+  background-color: lightgray;
+}
+
+.Ground-2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.Game-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.4fr 1.2fr 1.4fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". New-game ."
+    "Game-1 Dice Game-2"
+    "Current-1 Options Current-2";
+  grid-area: 1 / 1 / 2 / 3;
+  place-content: center;
+}
+
+.New-game {
+  grid-area: New-game;
+  justify-self: center;
+}
+
+.Dice {
+  grid-area: Dice;
+}
+
+.Options {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Roll-dice"
+    "Hold";
+  grid-area: Options;
+  place-content: center;
+}
+
+.Roll-dice {
+  grid-area: Roll-dice;
+  justify-self: center;
+}
+
+.Hold {
+  grid-area: Hold;
+  justify-self: center;
+}
+
+.Game-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.7fr 1.3fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Player-1"
+    "Score-1";
+  grid-area: Game-1;
+  place-content: center;
+}
+
+.Player-1 {
+  grid-area: Player-1;
+  justify-self: center;
+}
+
+.Score-1 {
+  grid-area: Score-1;
+  justify-self: center;
+}
+
+.Game-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.7fr 1.3fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Player-2"
+    "Score-2";
+  grid-area: Game-2;
+  place-content: center;
+}
+
+.Player-2 {
+  grid-area: Player-2;
+  justify-self: center;
+}
+
+.Score-2 {
+  grid-area: Score-2;
+  justify-self: center;
+}
+
+.Current-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.7fr 1.3fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Current-title-1"
+    "Current-score-1";
+  grid-area: Current-1;
+  justify-self: center;
+}
+
+.Current-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.7fr 1.3fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Current-title-2"
+    "Current-score-2";
+  grid-area: Current-2;
+  justify-self: center;
+}
+
+.Current-title-1 {
+  grid-area: Current-title-1;
+}
+
+.Current-score-1 {
+  grid-area: Current-score-1;
+  justify-self: center;
+}
+
+.Current-title-2 {
+  grid-area: Current-title-2;
+}
+
+.Current-score-2 {
+  grid-area: Current-score-2;
+  justify-self: center;
+}
+
+.New-game, .Roll-dice, .Hold {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.Player-1, .Player-2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.Score-1, .Score-2 {
+  font-size: 36px;
+  font-weight: 400;
+}
