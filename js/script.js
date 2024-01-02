@@ -3,6 +3,8 @@ const globalScore = [document.querySelector('#globalScore1'), document.querySele
 const ground = [document.querySelector('#ground1'), document.querySelector('#ground2')]
 const playerPoint = [document.querySelector('#playerPoint1'), document.querySelector('#playerPoint2')]
 
+let diceValue = 0
+
 //Class Player
 
 class Player {
@@ -37,5 +39,24 @@ function initGame() {
   ground[1].style.background = '';
   playerPoint[1].style.display = '';
 }
+
+function chgPlayer() {
+  if (player1.round) {
+    player1.round = false
+    player2.round = true
+    ground[1].style.background = 'lightgray';
+    playerPoint[1].style.display = 'inline-block';
+    ground[0].style.background = '';
+    playerPoint[0].style.display = '';
+  } else {
+    player1.round = true
+    player2.round = false
+    ground[0].style.background = 'lightgray';
+    playerPoint[0].style.display = 'inline-block';
+    ground[1].style.background = '';
+    playerPoint[1].style.display = '';
+  }
+}
+
 
 initGame()
