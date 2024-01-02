@@ -101,3 +101,20 @@ rollDiceButton?.addEventListener('click', () => {
     }
   }
 })
+
+//Enregistrement score global
+holdButton?.addEventListener('click', () => {
+  if (player1.round) {
+    player1.globalScore += player1.currentScore
+    player1.currentScore = 0
+    player1.displayGlobalScore()
+    player1.displayCurrentScore()
+    chgPlayer()
+  } else {
+    player2.globalScore += player2.currentScore
+    player2.currentScore = 0
+    player2.displayGlobalScore()
+    player2.displayCurrentScore()
+    chgPlayer()
+  }
+})
