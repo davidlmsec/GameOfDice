@@ -3,13 +3,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- }
- 
- /* Styles généraux */
- body {
+}
+
+/* Styles généraux */
+body {
   font-family: 'Lato', sans-serif;
   color: #1b1b1b;
- }
+}
 
 
 /* ============================== GRID ============================== */
@@ -24,32 +24,32 @@
 }
 
 /* Espace de jeux général */
-.Ground-1 {
+.ground-1 {
   grid-area: 1 / 1 / 2 / 2;
 }
 
-.Ground-2 {
+.ground-2 {
   grid-area: 1 / 2 / 2 / 3;
 }
 
-.Game-area {
+.game-area {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.4fr 1.2fr 1.4fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    ". New-game ."
-    "Game-1 Dice Game-2"
-    "Current-1 Options Current-2";
+    ". new-game ."
+    "game-1 dice game-2"
+    "current-1 options current-2";
   grid-area: 1 / 1 / 2 / 3;
   place-content: center;
   padding: 70px;
 }
 
 /* Nouveau jeu */
-.New-game {
-  grid-area: New-game;
+.new-game {
+  grid-area: new-game;
   justify-self: center;
   padding: 20px;
 }
@@ -63,8 +63,8 @@
 }
 
 /* Dé */
-.Dice {
-  grid-area: Dice;
+.dice {
+  grid-area: dice;
   justify-self: center;
   align-self: end;
   background-color: white;
@@ -75,23 +75,23 @@
 }
 
 /* Options de jeu */
-.Options {
+.options {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "Roll-dice"
-    "Hold";
-  grid-area: Options;
+    "roll-dice"
+    "hold";
+  grid-area: options;
   margin-top: 150px;
   justify-content: center;
   align-items: end;
 }
 
-.Roll-dice {
-  grid-area: Roll-dice;
+.roll-dice {
+  grid-area: roll-dice;
   justify-self: center;
   align-self: end;
   padding-bottom: 15px;
@@ -105,8 +105,8 @@
   height: 25px;
 }
 
-.Hold {
-  grid-area: Hold;
+.hold {
+  grid-area: hold;
   justify-self: center;
   align-self: start;
   padding-top: 15px;
@@ -121,90 +121,110 @@
 }
 
 /* Espace joueur 1 */
-.Game-1 {
+.game-1 {
   grid-template-areas:
-    "Player-1"
-    "Score-1";
-  grid-area: Game-1;
+    "player-1"
+    "score-1";
+  grid-area: game-1;
 }
 
-.Player-1 {
-  grid-area: Player-1;
+.player-1 {
+  grid-area: player-1;
   justify-self: center;
 }
 
-.Score-1 {
-  grid-area: Score-1;
+#playerPoint1 {
+  align-self: center;
+  width: 10px;
+  height: 10px;
+  background-color: #eb4d4c;
+  border-radius: 50%;
+}
+
+.score-1 {
+  grid-area: score-1;
   justify-self: center;
 }
 
 /* Espace joueur 2 */
-.Game-2 {
+.game-2 {
   grid-template-areas:
-    "Player-2"
-    "Score-2";
-  grid-area: Game-2;
+    "player-2"
+    "score-2";
+  grid-area: game-2;
 }
 
-.Player-2 {
-  grid-area: Player-2;
+.player-2 {
+  grid-area: player-2;
   justify-self: center;
 }
 
-.Score-2 {
-  grid-area: Score-2;
+#playerPoint2 {
+  align-self: center;
+  width: 10px;
+  height: 10px;
+  background-color: #eb4d4c;
+  border-radius: 50%;
+}
+
+.score-2 {
+  grid-area: score-2;
   justify-self: center;
 }
 
 /* Score joueur 1 */
-.Current-1 {
+.current-1 {
   grid-template-areas:
-    "Current-title-1"
-    "Current-score-1";
-  grid-area: Current-1;
+    "current-title-1"
+    "current-score-1";
+  grid-area: current-1;
 }
 
-.Current-title-1 {
-  grid-area: Current-title-1;
+.current-title-1 {
+  grid-area: current-title-1;
 }
 
-.Current-score-1 {
-  grid-area: Current-score-1;
+.current-score-1 {
+  grid-area: current-score-1;
 }
 
 
 /* Score joueur 2 */
-.Current-2 {
+.current-2 {
   grid-template-areas:
-    "Current-title-2"
-    "Current-score-2";
-  grid-area: Current-2;
+    "current-title-2"
+    "current-score-2";
+  grid-area: current-2;
 }
 
-.Current-title-2 {
-  grid-area: Current-title-2;
+.current-title-2 {
+  grid-area: current-title-2;
 }
 
-.Current-score-2 {
-  grid-area: Current-score-2;
+.current-score-2 {
+  grid-area: current-score-2;
 }
 
 /* =================== Config groupée =================== */
 
 /* Colone centrale */
-.New-game, .Roll-dice, .Hold {
+.new-game,
+.roll-dice,
+.hold {
   font-size: 20px;
   font-weight: 600;
 }
 
 /* Nom joueur */
-.Player-1, .Player-2 {
+.player-1,
+.player-2 {
   font-size: 40px;
   font-weight: 400;
   margin-top: 40px;
 }
 
-.Game-1, .Game-2 {
+.game-1,
+.game-2 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.7fr 1.3fr;
@@ -214,14 +234,16 @@
 }
 
 /* Score joueur */
-.Score-1, .Score-2 {
+.score-1,
+.score-2 {
   font-size: 90px;
   font-weight: 400;
   color: #eb4d4c;
 }
 
 /* Carré score courant */
-.Current-1, .Current-2 {
+.current-1,
+.current-2 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.7fr 1.3fr;
@@ -236,16 +258,18 @@
 }
 
 /* Titre carré score courant */
-.Current-title-1, .Current-title-2 {
+.current-title-1,
+.current-title-2 {
   justify-self: center;
   color: #1b1b1b;
   font-size: 14px;
   font-weight: 600;
-  padding-top: 10px;
+  padding-top: 10px
 }
 
 /* Score carré score courant */
-.Current-score-1, .Current-score-2 {
+.current-score-1,
+.current-score-2 {
   justify-self: center;
   align-self: end;
   padding-bottom: 10px;

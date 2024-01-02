@@ -13,36 +13,37 @@
 
 <body>
   <div class="container">
-    <div class="Ground-1"></div>
-    <div class="Ground-2"></div>
-    <div class="Game-area">
-      <div class="New-game"><img class="icone-plus" src="images/plus-50.png" alt="icone plus">NEW GAME</div>
-      <div class="Dice"></div>
-      <div class="Options">
-        <div class="Roll-dice"><img class="icone-rotate" src="images/rotation-arrow-50.png"
+    <div class="ground-1" id="ground1"></div>
+    <div class="ground-2" id="ground2"></div>
+    <div class="game-area" id="gameArea">
+      <div class="new-game" id="newGame"><img class="icone-plus" src="images/plus-50.png" alt="icone plus">NEW GAME
+      </div>
+      <div class="dice" id="dice"></div>
+      <div class="options" id="options">
+        <div class="roll-dice" id="rollDice"><img class="icone-rotate" src="images/rotation-arrow-50.png"
             alt="icone relancer">ROLL-DICE</div>
-        <div class="Hold"><img class="icone-hold" src="images/enter-50.png" alt="icone hold">HOLD</div>
+        <div class="hold" id="hold"><img class="icone-hold" src="images/enter-50.png" alt="icone hold">HOLD</div>
       </div>
-      <div class="Game-1">
-        <div class="Player-1">PLAYER 1</div>
-        <div class="Score-1">63</div>
+      <div class="game-1" id="game1">
+        <div class="player-1" id="player1">PLAYER 1 <span id="playerPoint1"></span></div>
+        <div class="score-1" id="globalScore1"></div>
       </div>
-      <div class="Game-2">
-        <div class="Player-2">PLAYER 2</div>
-        <div class="Score-2">72</div>
+      <div class="game-2" id="game2">
+        <div class="player-2" id="player2"><span id="playerPoint2"></span> PLAYER 2</div>
+        <div class="score-2" id="globalScore2"></div>
       </div>
-      <div class="Current-1">
-        <div class="Current-title-1">CURRENT</div>
-        <div class="Current-score-1">0</div>
+      <div class="current-1" id="current1">
+        <div class="current-title-1" id="currentTitle1">CURRENT</div>
+        <div class="current-score-1" id="currentScore1"></div>
       </div>
-      <div class="Current-2">
-        <div class="Current-title-2">CURRENT</div>
-        <div class="Current-score-2">0</div>
+      <div class="current-2" id="current2">
+        <div class="current-title-2" id="currentTitle2">CURRENT</div>
+        <div class="current-score-2" id="currentScore2"></div>
       </div>
     </div>
   </div>
-
   <script src="js/script.js"></script>
 </body>
+
 
 </html>
