@@ -2,8 +2,10 @@ const currentScore = [document.querySelector('#currentScore1'), document.querySe
 const globalScore = [document.querySelector('#globalScore1'), document.querySelector('#globalScore2')]
 const ground = [document.querySelector('#ground1'), document.querySelector('#ground2')]
 const playerPoint = [document.querySelector('#playerPoint1'), document.querySelector('#playerPoint2')]
+const rollDiceButton = document.querySelector('#rollDice')
 
 let diceValue = 0
+let currentPlayer = 1
 
 //Class Player
 
@@ -21,6 +23,10 @@ class Player {
 
   displayGlobalScore() {
     globalScore[this.id - 1].innerText = this.globalScore
+  }
+
+  addCurrentScore(diceValue) {
+    this.currentScore += diceValue
   }
 }
 
@@ -58,5 +64,32 @@ function chgPlayer() {
   }
 }
 
+function rollDice() {
+  diceValue = Math.floor(Math.random() * 6) + 1
+  return diceValue
+}
 
 initGame()
+
+rollDiceButton?.addEventListener('click', () => {
+  rollDice()
+  if (player1.round) {
+    if (diceValue === 1) {
+      player1.currentScore = 0
+      player1.displayCurrentScore()
+      chgPlayer()
+    } else {
+      player1.addCurrentScore(diceValue)
+      player1.displayCurrentScore()
+    }
+  } else {
+    if (diceValue === 1) {
+      player2.currentScore = 0
+      player2.displayCurrentScore()
+      chgPlayer()
+    } else {
+      player2.addCurrentScore(diceValue)
+      player2.displayCurrentScore()
+    }
+  }
+})
