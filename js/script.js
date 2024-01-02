@@ -4,6 +4,7 @@ const ground = [document.querySelector('#ground1'), document.querySelector('#gro
 const playerPoint = [document.querySelector('#playerPoint1'), document.querySelector('#playerPoint2')]
 const rollDiceButton = document.querySelector('#rollDice')
 const holdButton = document.querySelector('#hold')
+const newGameButton = document.querySelector('#newGame')
 
 let diceValue = 0
 let currentPlayer = 1
@@ -73,13 +74,20 @@ function rollDice() {
   return diceValue
 }
 
+// Nouveau jeu
+function newGame() {
+  player1.currentScore = player1.globalScore = 0
+  player2.currentScore = player2.globalScore = 0
+  initGame()
+}
+
 // ##### Jeu #####
 
 //Initialisation du jeu
 initGame()
 
 //Déroulement du jeu
-rollDiceButton?.addEventListener('click', () => {
+rollDiceButton.addEventListener('click', () => {
   rollDice()
   if (player1.round) {
     if (diceValue === 1) {
@@ -103,7 +111,7 @@ rollDiceButton?.addEventListener('click', () => {
 })
 
 //Enregistrement score global
-holdButton?.addEventListener('click', () => {
+holdButton.addEventListener('click', () => {
   if (player1.round) {
     player1.globalScore += player1.currentScore
     player1.currentScore = 0
@@ -118,3 +126,6 @@ holdButton?.addEventListener('click', () => {
     chgPlayer()
   }
 })
+
+// Remise à zéro (nouveau jeu)
+newGameButton.addEventListener('click', () => newGame())
