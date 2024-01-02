@@ -3,6 +3,7 @@ const globalScore = [document.querySelector('#globalScore1'), document.querySele
 const ground = [document.querySelector('#ground1'), document.querySelector('#ground2')]
 const playerPoint = [document.querySelector('#playerPoint1'), document.querySelector('#playerPoint2')]
 const rollDiceButton = document.querySelector('#rollDice')
+const holdButton = document.querySelector('#hold')
 
 let diceValue = 0
 let currentPlayer = 1
@@ -30,6 +31,7 @@ class Player {
   }
 }
 
+//Création des joueurs
 const player1 = new Player(1, 0, 0)
 const player2 = new Player(2, 0, 0)
 
@@ -46,6 +48,7 @@ function initGame() {
   playerPoint[1].style.display = '';
 }
 
+//Changement de joueur
 function chgPlayer() {
   if (player1.round) {
     player1.round = false
@@ -64,13 +67,18 @@ function chgPlayer() {
   }
 }
 
+// Lancer le dé
 function rollDice() {
   diceValue = Math.floor(Math.random() * 6) + 1
   return diceValue
 }
 
+// ##### Jeu #####
+
+//Initialisation du jeu
 initGame()
 
+//Déroulement du jeu
 rollDiceButton?.addEventListener('click', () => {
   rollDice()
   if (player1.round) {
