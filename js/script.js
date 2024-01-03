@@ -2,6 +2,7 @@ const currentScore = [document.querySelector('#currentScore1'), document.querySe
 const globalScore = [document.querySelector('#globalScore1'), document.querySelector('#globalScore2')]
 const ground = [document.querySelector('#ground1'), document.querySelector('#ground2')]
 const playerPoint = [document.querySelector('#playerPoint1'), document.querySelector('#playerPoint2')]
+const dice = document.querySelector('#dice')
 const rollDiceButton = document.querySelector('#rollDice')
 const holdButton = document.querySelector('#hold')
 const newGameButton = document.querySelector('#newGame')
@@ -10,6 +11,7 @@ const closeModalButton = document.querySelector('#closeModal')
 
 let diceValue = 0
 let currentPlayer = 1
+let img = document.createElement("img")
 
 //Class Player
 
@@ -36,6 +38,8 @@ class Player {
   addGlobalScore() {
     this.globalScore += this.currentScore
     this.currentScore = 0
+    img.src = "images/de0.png"
+    dice?.appendChild(img)
   }
 
   congratulation() {
@@ -83,6 +87,32 @@ function chgPlayer() {
 // Lancer le dé
 function rollDice() {
   diceValue = Math.floor(Math.random() * 6) + 1
+  switch (diceValue) {
+    case 1:
+      img.src = "images/de1.png"
+      dice?.appendChild(img)
+      break
+    case 2:
+      img.src = "images/de2.png"
+      dice?.appendChild(img)
+      break
+    case 3:
+      img.src = "images/de3.png"
+      dice?.appendChild(img)
+      break
+    case 4:
+      img.src = "images/de4.png"
+      dice?.appendChild(img)
+      break
+    case 5:
+      img.src = "images/de5.png"
+      dice?.appendChild(img)
+      break
+    case 6:
+      img.src = "images/de6.png"
+      dice?.appendChild(img)
+      break
+  }
   return diceValue
 }
 
@@ -95,7 +125,7 @@ function newGame() {
 
 // Fermer la modal
 function closeModal() {
-  modal?.classList.remove('modal-open')
+  modal.classList.remove('modal-open')
   newGame()
 }
 
@@ -133,7 +163,7 @@ holdButton.addEventListener('click', () => {
   if (player1.round) {
     player1.addGlobalScore()
     player1.displayGlobalScore()
-    if (player1.globalScore >= 20) {
+    if (player1.globalScore >= 100) {
       player1.congratulation()
     }
     player1.displayCurrentScore()
@@ -141,7 +171,7 @@ holdButton.addEventListener('click', () => {
   } else {
     player2.addGlobalScore()
     player2.displayGlobalScore()
-    if (player2.globalScore >= 20) {
+    if (player2.globalScore >= 100) {
       player2.congratulation()
     }
     player2.displayCurrentScore()

@@ -70,9 +70,14 @@ body {
   background-color: white;
   width: 110px;
   height: 110px;
-  border-radius: 3px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.dice img {
+  width: 110px;
+  height: 110px;
+}
+
 
 /* Options de jeu */
 .options {
@@ -134,7 +139,6 @@ body {
 }
 
 #playerPoint1 {
-  align-self: center;
   width: 10px;
   height: 10px;
   background-color: #eb4d4c;
@@ -233,8 +237,8 @@ body {
 
 .modal .close {
   position: absolute;
-  top: -80px;
-  right: 15px;
+  top: -90px;
+  right: 25px;
   font-size: .9em;
   font-weight: lighter;
   cursor: pointer;
