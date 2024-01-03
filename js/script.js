@@ -5,6 +5,8 @@ const playerPoint = [document.querySelector('#playerPoint1'), document.querySele
 const rollDiceButton = document.querySelector('#rollDice')
 const holdButton = document.querySelector('#hold')
 const newGameButton = document.querySelector('#newGame')
+const modalTitle = document.querySelector('#modalTitle')
+const closeModalButton = document.querySelector('#closeModal')
 
 let diceValue = 0
 let currentPlayer = 1
@@ -29,6 +31,16 @@ class Player {
 
   addCurrentScore(diceValue) {
     this.currentScore += diceValue
+  }
+
+  addGlobalScore() {
+    this.globalScore += this.currentScore
+    this.currentScore = 0
+  }
+
+  congratulation() {
+    modal?.classList.add('modal-open')
+    modalTitle.innerText = 'Bravo Player' + this.id
   }
 }
 
@@ -81,6 +93,12 @@ function newGame() {
   initGame()
 }
 
+// Fermer la modal
+function closeModal() {
+  modal?.classList.remove('modal-open')
+  newGame()
+}
+
 // ##### Jeu #####
 
 //Initialisation du jeu
@@ -113,15 +131,19 @@ rollDiceButton.addEventListener('click', () => {
 //Enregistrement score global
 holdButton.addEventListener('click', () => {
   if (player1.round) {
-    player1.globalScore += player1.currentScore
-    player1.currentScore = 0
+    player1.addGlobalScore()
     player1.displayGlobalScore()
+    if (player1.globalScore >= 20) {
+      player1.congratulation()
+    }
     player1.displayCurrentScore()
     chgPlayer()
   } else {
-    player2.globalScore += player2.currentScore
-    player2.currentScore = 0
+    player2.addGlobalScore()
     player2.displayGlobalScore()
+    if (player2.globalScore >= 20) {
+      player2.congratulation()
+    }
     player2.displayCurrentScore()
     chgPlayer()
   }
@@ -129,3 +151,4 @@ holdButton.addEventListener('click', () => {
 
 // Remise à zéro (nouveau jeu)
 newGameButton.addEventListener('click', () => newGame())
+
