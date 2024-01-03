@@ -6,6 +6,7 @@ const dice = document.querySelector('#dice')
 const rollDiceButton = document.querySelector('#rollDice')
 const holdButton = document.querySelector('#hold')
 const newGameButton = document.querySelector('#newGame')
+const modal = document.querySelector('#modal')
 const modalTitle = document.querySelector('#modalTitle')
 const closeModalButton = document.querySelector('#closeModal')
 
@@ -63,6 +64,8 @@ function initGame() {
   playerPoint[0].style.display = 'inline-block';
   ground[1].style.background = '';
   playerPoint[1].style.display = '';
+  img.src = "images/de0.png"
+  dice?.appendChild(img)
 }
 
 //Changement de joueur
@@ -125,7 +128,7 @@ function newGame() {
 
 // Fermer la modal
 function closeModal() {
-  modal.classList.remove('modal-open')
+  modal?.classList.remove('modal-open')
   newGame()
 }
 
@@ -133,6 +136,9 @@ function closeModal() {
 
 //Initialisation du jeu
 initGame()
+
+// Remise à zéro (nouveau jeu)
+newGameButton.addEventListener('click', () => newGame())
 
 //Déroulement du jeu
 rollDiceButton.addEventListener('click', () => {
@@ -179,6 +185,4 @@ holdButton.addEventListener('click', () => {
   }
 })
 
-// Remise à zéro (nouveau jeu)
-newGameButton.addEventListener('click', () => newGame())
 
