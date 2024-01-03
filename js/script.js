@@ -15,7 +15,6 @@ let currentPlayer = 1
 let img = document.createElement("img")
 
 //Class Player
-
 class Player {
   round = false
   constructor(id, currentScore, globalScore) {
@@ -138,10 +137,10 @@ function closeModal() {
 initGame()
 
 // Remise à zéro (nouveau jeu)
-newGameButton.addEventListener('click', () => newGame())
+newGameButton?.addEventListener('click', () => newGame())
 
 //Déroulement du jeu
-rollDiceButton.addEventListener('click', () => {
+rollDiceButton?.addEventListener('click', () => {
   rollDice()
   if (player1.round) {
     if (diceValue === 1) {
@@ -165,7 +164,7 @@ rollDiceButton.addEventListener('click', () => {
 })
 
 //Enregistrement score global
-holdButton.addEventListener('click', () => {
+holdButton?.addEventListener('click', () => {
   if (player1.round) {
     player1.addGlobalScore()
     player1.displayGlobalScore()
